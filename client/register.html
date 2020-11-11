@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>INTE1071 Secure E Commerce</title>
+    </head>
+    <script src='js/sha256.js'></script>
+        <script type="text/javascript">
+            function hash(){
+                var input = document.getElementById('password').value;
+    			var hash = SHA256.hash(input);
+    			document.getElementById("hash_pwd").value = hash;
+            }
+        </script>
+    <body>
+        <h2>Register</h2>
+        <br>
+        <form action="../server/register.php" method="POST">
+            <label for="username">Username: </label>
+            <input type="text" name="username" id="username">
+            <br><br>
+            <label for="password">Password: </label>
+            <input type="text" name="password" id="password">
+            <input type="hidden" id="hash_pwd" name="hash_pwd">
+            <br>           
+            <input type="submit" value="Create Account" onclick="hash()">
+        </form>
+    </body>
+</html>
+
